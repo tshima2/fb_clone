@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :_set_article_with_id, only: [:edit, :update, :destroy] 
+  before_action :_set_article_with_id, only: [:edit, :update, :destroy, :show] 
   def destroy
     @article.destroy
     redirect_to articles_path, notice:"投稿を削除しました！"
@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    11xsh
     if (current_user)
       @user_articles_url = articles_path + '?self_articles=1'
       if params[:self_articles] && params[:self_articles]=='1'
@@ -60,6 +59,9 @@ class ArticlesController < ApplicationController
         render :new
       end
     end
+  end
+
+  def show
   end
 
   private

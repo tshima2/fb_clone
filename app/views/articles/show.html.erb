@@ -1,7 +1,19 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image.url %>
-</p>
-<%= link_to 'Edit', edit_article_path(@article) %>
-<%= link_to 'Back', article_path %>
+<h2>参照</h2>
+
+<% if @article.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @article.errors.count %>件のエラーがあります</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>      	  
+  </ul>
+</div>
+<% end %>      
+
+<%= content_tag(:a, image_tag('shima.png', class: 'fbc_new_profile_icon'), href: articles_path) %>
+<%= text_area_tag(:content, @article.content, size:"90x10", readonly: true) %>
+<% if @article.image && @article.image.url %>
+  <%= content_tag(:p, "ファイル名:#{@article.image}") %>
+  <%= image_tag(@article.image.url, class:'fbc_new_image_icon') %>
+<% end %>

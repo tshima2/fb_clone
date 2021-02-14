@@ -11,12 +11,17 @@
     <div class="fbc_index_post_box">
       <span class="fbc_index_box_menu">...</span>
       <ul class="fbc_index_box_menu_list">
-	      <li class="fbc_index_box_item">
-	        <%= link_to ('<span class="ui-icon ui-icon-circle-arrow-e"></span>編集').html_safe, edit_article_path(article.id) %>
-	      </li>
-        <li class="fbc_index_box_item">
-	        <%= link_to ('<span class="ui-icon ui-icon ui-icon-trash"></span>削除').html_safe, article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
-	      </li>
+	<li class="fbc_index_box_item">
+	  <%= link_to ('<span class="ui-icon ui-icon-circle-arrow-e"></span>参照').html_safe, article_path(article.id) %>
+	</li>
+	<% if(article.user_id == current_user.id) %>
+	  <li class="fbc_index_box_item">
+         	  <%= link_to ('<span class="ui-icon ui-icon-circle-arrow-e"></span>編集').html_safe, edit_article_path(article.id) %>
+	  </li>
+          <li class="fbc_index_box_item">
+	    <%= link_to ('<span class="ui-icon ui-icon ui-icon-trash"></span>削除').html_safe, article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+	  </li>
+        <% end %>
       </ul>
       <div class="fbc_index_box_content">
 	      <strong>[posted by <a href="<%= user_path(article.user_id) %>"><%= article.user.name %></a> at <%= l article.updated_at %>]</strong><BR><%= article.content %>
