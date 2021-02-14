@@ -7,23 +7,28 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">        
   </head>
 
   <body>
+    <div class='fbc_common_header'>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
+    <%= content_tag(:a, image_tag('fb_logo3.png', class: 'fbc_index_profile_icon'), href: articles_path) %>    
     <% if logged_in? %>
-      # ログインしている場合
       <%= link_to "Profile", user_path(current_user.id) %>
       <%= link_to "Logout", sessions_path(current_user.id), method: :delete %>
     <% else %>
-      # ログインしていない場合
       <%= link_to "Sign up", new_user_path %>
       <%= link_to "Login", new_sessions_path %>
     <% end %>
-
+    </div>
+    
     <%= yield %>
+
+    
   </body>
 </html>

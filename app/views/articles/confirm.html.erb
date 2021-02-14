@@ -1,0 +1,20 @@
+
+
+<%= form_with(model: @article, url: articles_path, local: true) do |form| %>
+<h2>確認画面</h2>
+<%= form.text_area(:content, size: "90x10", value: @article.content, readonly: true) %>
+
+<!-- 確認画面でアップロードした画像を表示させるための記述 -->
+<%= image_tag(@article.image.url, class:'fbc_new_image_icon') if @article.image && @article.image.url %>
+<%= form.hidden_field  :content, value: @article.content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :user_id, value: current_user.id %>  
+  <%= form.submit "投稿する" %>
+<% end %>
+
+<%= form_with(model:@article, url: articles_path, local:true, method:"post") do |form| %>
+  <%= form.hidden_field  :content, value: @article.content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :user_id, value: current_user.id %>    
+  <%= form.submit "戻る", name: "back" %>
+<% end %>

@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.fbc_index_profile_icon {
+  width: 32px;
+  height: 32px;
+  margin: 10px;
+  float :left;
+}
+
+.fbc_index_new_post {
+  display: inline-block;
+  width: 240px;
+  height: 32px;
+  border-radius: 16px;
+  border: 2px groove;
+  background-color: #ffffff;
+  margin: 10px;  
+  float :left;
+}
+
+.fbc_index_post_image_icon {
+  width: 32px;
+  height: 32px;
+  margin: 10px;
+  float :left;  
+}
+
+.fbc_index_posts{
+  float: left;
+  list-style: none;
+}
+
+.fbc_common_header {
+  width: 640px;
+  height: 60px;
+  background-color: lightyellow;  
+}
+
+.fbc_index_post_header {
+  width: 640px;
+  height: 80px;
+  background-color: lightgray;  
+  margin-top: 10px;
+}
+
+.fbc_index_post_box_wrapper{
+  position: relative;
+  top: 10px;
+  left: 0;
+}
+
+.fbc_index_post_box{
+  width: 640px;
+  height: 192px;  
+  margin-top: 10px;
+  margin-bottom: 10px;  
+  postion: relative;
+}
+
+.fbc_index_menu_list {
+  list-style: none;
+  margin: 10px;
+  padding: 10px;  
+}
+
+.fbc_index_box_menu{
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 32px;
+  width: 16px;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 20px;
+}
+
+.fbc_index_box_menu:hover {
+  background-color: lightblue;    
+}
+
+.fbc_index_box_menu_list {
+  display: none;
+  top: 0;
+  right: 0;
+  position: absolute;
+  list-style: none;
+}
+
+.fbc_index_box_item{
+  background-color: lightblue;
+  width: 40px;
+  font-size: 8px;
+}
+
+.fbc_index_box_content{
+    height: 192px;    
+    width: 640px;
+    font-size: 12px;
+    border: 2px groove;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.fbc_index_box_text{
+  font-size: 8px;
+}
+
+.ui-menu {
+  width: 40px;
+}

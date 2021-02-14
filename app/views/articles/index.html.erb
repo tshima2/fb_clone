@@ -1,0 +1,34 @@
+
+<article class="fbc_index_posts">
+  <div class="fbc_index_post_header">
+    <%= content_tag(:a, image_tag('shima.png', class: 'fbc_index_profile_icon'), href: @user_articles_url) %>	  
+    <%= content_tag(:a, content_tag(:div, 'その気持ち、シェアしよう', class: 'fbc_index_new_post'), href: new_article_path) %>
+  </div>
+  
+  <div class="fbc_index_post_box_wrapper">
+    <%= 'あなたの' if @self_articles %>投稿一覧 <%=@articles.count %>件
+    <% @articles.each do |article| %>
+    <div class="fbc_index_post_box">
+      <span class="fbc_index_box_menu">...</span>
+      <ul class="fbc_index_box_menu_list">
+	      <li class="fbc_index_box_item">
+	        <%= link_to ('<span class="ui-icon ui-icon-circle-arrow-e"></span>編集').html_safe, edit_article_path(article.id) %>
+	      </li>
+        <li class="fbc_index_box_item">
+	        <%= link_to ('<span class="ui-icon ui-icon ui-icon-trash"></span>削除').html_safe, article_path(article.id), method: :delete, data: { confirm: '本当に削除していいですか？'} %>
+	      </li>
+      </ul>
+      <div class="fbc_index_box_content">
+	      <strong>[posted by <a href="<%= user_path(article.user_id) %>"><%= article.user.name %></a> at <%= l article.updated_at %>]</strong><BR><%= article.content %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</article>
+
+<%= javascript_include_tag "index2.js" %>
+
+
+
+

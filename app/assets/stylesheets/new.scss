@@ -1,0 +1,75 @@
+html { 
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 640px;
+  min-height: 320px;
+  margin: 10px 10px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.fbc_new_profile_icon {
+  width: 32px;
+  height: 32px;
+  margin-top: 40px;
+  margin-left: 10px;  
+}
+
+#fbc_new_submit_button {
+  width: 640px;
+}
+
+.fbc_new_image_box {
+  width: 100px;
+  height: 140px;
+  position: relative;
+  margin: 10px;
+}
+
+.fbc_new_image_icon {
+  width: 100px;
+  height: 100px;
+  
+}
+
+.fbc_new_box_menu{
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 32px;
+  width: 16px;
+  height: 32px;
+  margin-top: 0px;  
+  margin-left: 80px;      
+  padding-left: 8px;
+  padding-right: 8px;    
+}
+
+.fbc_new_box_menu:hover {
+  background-color: lightblue;    
+}
+
+.fbc_new_box_menu_list {
+  display: none;
+  top: 0;
+  right: 0;
+  position: absolute;
+  list-style: none;
+  font-size: 12px;
+}
+
+.fbc_new_box_item{
+  background-color: #ffffff;
+  width: 40px;
+}
+
+.fbc_new_post_icon {
+  width: 48px;
+  height: 48px;
+}
+

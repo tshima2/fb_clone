@@ -1,0 +1,37 @@
+<%= form_with( model: @article, local: true, url: choose_new_or_edit[:uri] ) do |form| %>
+<header>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @article.errors.count %>件のエラーがあります</h2>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>      	  
+    </ul>
+  </div>
+  <% end %>      
+</header>
+
+<h2><%= choose_new_or_edit[:header] %></h2>
+<%= content_tag(:a, image_tag('shima.png', class: 'fbc_new_profile_icon'), href: articles_path) %>
+<%= form.text_area(:content, size: "90x10", placeholder: "#{current_user.name}さん、その気持ち、シェアしよう", value: @article.content) %>
+
+<% if @article.image && @article.image.url %>  
+<div class="fbc_new_image_box">
+  <span class="fbc_new_box_menu">...</span>
+  <ul class="fbc_new_box_menu_list">
+    <li class="fbc_new_box_item"><a href="#"><span class="ui-icon ui-icon-trash"></span>削除</a></li>
+  </ul>
+  <%= image_tag(@article.image.url, class:'fbc_new_image_icon') %>  
+</div>
+<%= form.hidden_field :image_cache %>
+<% end %>
+
+	
+<hr>
+<%= form.file_field :image %>
+<%= form.hidden_field :user_id, value: current_user.id %>
+<%= form.submit(id: 'fbc_new_submit_button', value: choose_new_or_edit[:label]) %>  
+<% end %>
+
+<%= javascript_include_tag "new.js" %>
