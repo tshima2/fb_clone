@@ -17,7 +17,7 @@ end
 
 
 (1..10).each do
-  Article.create!(content: Faker::JapaneseMedia::DragonBall.character, user_id: rand(11))
+  Article.create!(content: Faker::JapaneseMedia::DragonBall.character, user_id: rand(10))
 end
 
 
