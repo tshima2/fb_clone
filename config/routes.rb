@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  #get 'sessions/new'
-  #get 'articles/index'
+  get '/', to: 'articles#index'
   resources :articles do
     collection do
       post :confirm
